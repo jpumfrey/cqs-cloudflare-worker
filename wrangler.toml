@@ -1,0 +1,5 @@
+name = "cqs-cloudflare-worker"
+main = "src/cqs-cloudflare-worker"
+compatibility_date = "2025-03-28"
+workers_dev = false
+preview_urls = false
