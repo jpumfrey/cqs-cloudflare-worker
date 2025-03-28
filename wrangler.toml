@@ -1,5 +1,5 @@
 name = "cqs-cloudflare-worker"
-main = "src/cqs-cloudflare-worker"
+main = "src/cqs-cloudflare-worker.ts"
 compatibility_date = "2025-03-28"
-workers_dev = false
+workers_dev = true
 preview_urls = false
