@@ -30,18 +30,24 @@ export default {
 					},
 					body: JSON.stringify({
 						personalizations: [{ to: [{ email }] }],
-						from: { email: 'no-reply@yourdomain.com' },
+						from: { email: 'japumfrey@gmail.com' }, // Replace with your verified single sender email
 						subject: 'New Submission',
 						content: [{ type: 'text/plain', value: message }],
 					}),
 				});
 
+				// Log SendGrid response for debugging
+				const sendgridResponseText = await sendgridResponse.text();
+				console.log('SendGrid Response:', sendgridResponse.status, sendgridResponseText);
+
 				if (!sendgridResponse.ok) {
-					return new Response('Failed to send email', { status: 500 });
+					return new Response(`Failed to send email: ${sendgridResponseText}`, { status: 500 });
 				}
 
 				return new Response('Email sent successfully', { status: 200 });
 			} catch (error) {
+				// Log error details for debugging
+				console.error('Error sending email:', error);
 				return new Response('Internal Server Error', { status: 500 });
 			}
 		}
